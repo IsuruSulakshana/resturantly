@@ -14,10 +14,10 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           "Resturantly",
           style: TextStyle(
-            fontSize: 3,
+            fontSize: 30.0,
           ),
         ),
       ),
