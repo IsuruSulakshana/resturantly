@@ -16,6 +16,9 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text(
           "Resturantly",
+          style: TextStyle(
+            fontSize: 30.0,
+          ),
         ),
       ),
     );
