@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
         title: Text(
           "Resturantly",
           style: TextStyle(
-            fontSize: 30.0,
+            fontSize: 30,
           ),
         ),
       ),
