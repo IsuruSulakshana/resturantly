@@ -1,15 +1,18 @@
-import 'dart:html';
 
 import 'package:flutter/material.dart';
+import 'package:resturantly/screens/homePage/components/post.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
 
-  @override
-  State<Home> createState() => _HomeState();
-}
+  final List _post = [
+    "post 1",
+    "post 2",
+    "post 3",
+    "post 4",
+    "post 5",
+    "post 6",
+  ];
 
-class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,6 +24,14 @@ class _HomeState extends State<Home> {
           ),
         ),
       ),
+      body: ListView.builder(
+        itemCount: _post.length,
+        itemBuilder: (context, index){
+          return Post(text: _post[index]);
+        },
+      ),
     );
   }
 }
+
+
