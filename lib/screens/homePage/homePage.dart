@@ -91,7 +91,7 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                   SizedBox(
-                    width: 370,
+                    width: 340,
                     child: Slider(
                       value: _initValue.toDouble(), 
                       min: 1.0,
@@ -117,40 +117,43 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-          Stack(
-            children: [
-              SizedBox(
-              height: 480.0,
-              child: ListView.builder(
-                itemCount: _post.length,
-                itemBuilder: (context, index){
-                  return Post(text: _post[index]);
-                },
+          Expanded(
+            flex: 2,
+            child: Stack(
+              children: [
+                SizedBox(
+                height: 480.0,
+                child: ListView.builder(
+                  itemCount: _post.length,
+                  itemBuilder: (context, index){
+                    return Post(text: _post[index]);
+                  },
+                ),
               ),
-            ),
-            Positioned(
-              right: 30,
-              bottom: 60,
-              child: Container(
-                  height: 60.0,
-                  width: 60.0,
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 117, 99, 177),
-                    borderRadius: BorderRadius.circular(12.0,)
-                  ),
-                  child: Center(
-                    child: GestureDetector(
-                      onTap: (){},
-                      child: const Image(
-                        image: AssetImage(
-                          'asset/icon/chat.png',
+              Positioned(
+                right: 30,
+                bottom: 60,
+                child: Container(
+                    height: 60.0,
+                    width: 60.0,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 117, 99, 177),
+                      borderRadius: BorderRadius.circular(12.0,)
+                    ),
+                    child: Center(
+                      child: GestureDetector(
+                        onTap: (){},
+                        child: const Image(
+                          image: AssetImage(
+                            'asset/icon/chat.png',
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
+              ),
+              ],
             ),
-            ],
           ),
         ],
       ),

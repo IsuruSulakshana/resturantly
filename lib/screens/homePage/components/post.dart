@@ -34,13 +34,13 @@ class _PostState extends State<Post> {
                   Row(
                     children: [
                       Container(
-                        height: 35.0,
-                        width: 35.0,
+                        height: 37.0,
+                        width: 37.0,
                         decoration: BoxDecoration(
                           color: Colors.deepPurpleAccent,
-                          borderRadius: BorderRadius.circular(14.0),
+                          borderRadius: BorderRadius.circular(30.0),
                           image: const DecorationImage(
-                            image: AssetImage('asset/image/logoImage.png'),
+                            image: AssetImage('asset/image/profile.png'),
                             fit: BoxFit.fill
                             ),
                          ),
