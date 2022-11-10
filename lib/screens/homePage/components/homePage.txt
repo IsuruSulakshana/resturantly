@@ -1,0 +1,25 @@
+home page
+
+ - app bar
+   - title
+   - action buttons
+
+ - post
+   - profile Image
+   - profile name
+   - time
+   - caption
+   - image
+   - action button
+   - like & comments
+
+ - story
+   - image
+   - border
+   - shop & distance
+   - label
+     - label image
+
+ - slider
+
+ - chat button

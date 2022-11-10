@@ -1,10 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 
 class Story extends StatefulWidget {
-  const Story({Key? key,}) : super(key: key);
+  const Story({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<Story> createState() => _StoryState();
@@ -13,60 +12,74 @@ class Story extends StatefulWidget {
 class _StoryState extends State<Story> {
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+    double area = (screenHeight * screenWidth) / 20000;
     return Padding(
-      padding: const EdgeInsets.all(2.0),
+      padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.008),
       child: Stack(
         children: [
           Container(
-            padding: const EdgeInsets.only(left: 5.0, top: 5.0),
-            width: 130.0,
-            height: 190.0,
+            padding:
+                EdgeInsets.only(left: area * (5 / 17), top: area * (5 / 17)),
+            width: area * (132 / 17),
+            height: area * (192 / 17),
             color: Colors.white,
             child: Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10.0),
-                  gradient: const LinearGradient(
-                    colors: [
-                      Color.fromARGB(255, 27, 7, 156),
-                      Color.fromARGB(255, 140, 26, 160),
-                      Color.fromARGB(255, 174, 71, 163),
-                    ],
+                borderRadius: BorderRadius.circular(10.0),
+                gradient: const LinearGradient(
+                  colors: [
+                    Color.fromARGB(255, 228, 18, 244),
+                    Color.fromARGB(255, 184, 1, 166),
+                    Color.fromARGB(255, 129, 4, 151),
+                    Color.fromARGB(255, 214, 116, 252),
+                  ],
+                ),
+              ),
+              child: Container(
+                margin: EdgeInsets.all(area * (2 / 17)),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(
+                    10.0
                   ),
-                  border: Border.all(
-                      width: 3.0, color: Color.fromARGB(255, 127, 67, 230))),
-              child: Center(
-                child: Container(
-                  width: 115,
-                  height: 175,
-                  decoration: BoxDecoration(
-                    color: Colors.deepPurpleAccent,
-                    borderRadius: BorderRadius.circular(
-                      8.0,
-                    ),
-                    image: const DecorationImage(
-                        image: AssetImage('asset/image/storyImage.png'),
-                        fit: BoxFit.fill),
-                  ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
-                      Text(
-                        "KFC",
-                        style: TextStyle(
-                          fontSize: 20.0,
-                          color: Colors.white,
-                          //fontWeight: FontWeight.bold,
-                        ),
+                ),
+                child: Center(
+                  child: Container(
+                    width: area * (120 / 17),
+                    height: area * (180 / 17),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(
+                        10.0,
                       ),
-                      Text(
-                        "120 meters",
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          color: Colors.white,
-                        ),
-                      )
-                    ],
+                      image: const DecorationImage(
+                          image: AssetImage('asset/image/storyImage.png'),
+                          fit: BoxFit.fill),
+                    ),
+                    child: Padding(
+                      padding: EdgeInsets.all(area*(2/17)),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "KFC",
+                            style: TextStyle(
+                              fontSize: area*(20/17),
+                              color: Colors.white,
+                            ),
+                          ),
+                          Text(
+                            "120 meters",
+                            style: TextStyle(
+                              fontSize: area*(14/17),
+                              color: Colors.white,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -76,8 +89,8 @@ class _StoryState extends State<Story> {
             left: 0.0,
             top: 0.0,
             child: Container(
-              height: 37.0,
-              width: 37.0,
+              height: area*(39/17),
+              width: area*(39/17),
               decoration: BoxDecoration(
                 color: Colors.deepPurpleAccent,
                 borderRadius: BorderRadius.circular(100.0),
