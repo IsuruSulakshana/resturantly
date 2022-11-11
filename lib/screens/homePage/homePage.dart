@@ -15,9 +15,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   int _initValue = 6;
   final  List _shop  =  [
-    ShopModel(shopName: "KFC",  distance: 100, border: true, logo: 'asset/image/nearShop/logo/logo1.png', image: 'asset/image/nearShop/image/storyImage1.png'),
-    ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo2.png', image: 'asset/image/nearShop/image/storyImage2.png'),
-    ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo3.png', image: 'asset/image/nearShop/image/storyImage3.png'),
+    ShopModel(shopName: "KFC",  distance: 100, border: true, logo: 'asset/image/nearShop/logo/logo2.png', image: 'asset/image/nearShop/image/storyImage1.png'),
+    ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo1.png', image: 'asset/image/nearShop/image/storyImage2.png'),
+    ShopModel(shopName: "MacDonalds",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo3.png', image: 'asset/image/nearShop/image/storyImage3.png'),
     ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo4.png', image: 'asset/image/nearShop/image/storyImage4.png'),
     ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo5.png', image: 'asset/image/nearShop/image/storyImage5.png'),
     ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo6.png', image: 'asset/image/nearShop/image/storyImage6.png'),
