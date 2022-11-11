@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:resturantly/model/postModel.dart';
+import 'package:resturantly/model/shopModel.dart';
 import 'package:resturantly/screens/homePage/components/post.dart';
 import 'package:resturantly/screens/homePage/components/story.dart';
 
@@ -11,14 +14,31 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   int _initValue = 6;
-  final List _post = [
-    "post 1",
-    "post 2",
-    "post 3",
-    "post 4",
-    "post 5",
-    "post 6",
+  final  List _shop  =  [
+    ShopModel(shopName: "KFC",  distance: 100, border: true, logo: 'asset/image/nearShop/logo/logo1.png', image: 'asset/image/nearShop/image/storyImage1.png'),
+    ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo2.png', image: 'asset/image/nearShop/image/storyImage2.png'),
+    ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo3.png', image: 'asset/image/nearShop/image/storyImage3.png'),
+    ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo4.png', image: 'asset/image/nearShop/image/storyImage4.png'),
+    ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo5.png', image: 'asset/image/nearShop/image/storyImage5.png'),
+    ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo6.png', image: 'asset/image/nearShop/image/storyImage6.png'),
+    ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo7.png', image: 'asset/image/nearShop/image/storyImage7.png'),
+    ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo8.png', image: 'asset/image/nearShop/image/storyImage8.png'),
+    ShopModel(shopName: "BurgerKIng",  distance: 120, border: false, logo: 'asset/image/nearShop/logo/logo9.png', image: 'asset/image/nearShop/image/storyImage9.png'),
   ];
+
+  final List _post = [
+    PostModel(logo: "asset/image/post/logo/profile.png", name: "StarBucks", time: "Just now", caption: "Make Fall your own. Try your Iced Chai Tea Latte with Pumpkin Cream Cold Foam. 🍂", image: "asset/image/post/image/postImage1.png", likes: "12k", comments: "256", liked: false),
+    PostModel(logo: "asset/image/post/logo/profile.png", name: "StarBucks", time: "1 hour ago", caption: "Make Fall your own. Try your Iced Chai Tea Latte with Pumpkin Cream Cold Foam. 🍂", image: "asset/image/post/image/postImage2.png", likes: "24k", comments: "25", liked: true),
+    PostModel(logo: "asset/image/post/logo/profile.png", name: "StarBucks", time: "2 day ago", caption: "Make Fall your own. Try your Iced Chai Tea Latte with Pumpkin Cream Cold Foam. 🍂", image: "asset/image/post/image/postImage3.png", likes: "1k", comments: "6", liked: false),
+    PostModel(logo: "asset/image/post/logo/profile.png", name: "StarBucks", time: "33 minutes ago", caption: "Make Fall your own. Try your Iced Chai Tea Latte with Pumpkin Cream Cold Foam. 🍂", image: "asset/image/post/image/postImage4.png", likes: "1M", comments: "7k", liked: true),
+    PostModel(logo: "asset/image/post/logo/profile.png", name: "StarBucks", time: "2 hour ago", caption: "Make Fall your own. Try your Iced Chai Tea Latte with Pumpkin Cream Cold Foam. 🍂", image: "asset/image/post/image/postImage5.png", likes: "12k", comments: "256", liked: false),
+    PostModel(logo: "asset/image/post/logo/profile.png", name: "StarBucks", time: "7 hour ago", caption: "Make Fall your own. Try your Iced Chai Tea Latte with Pumpkin Cream Cold Foam. 🍂", image: "asset/image/post/image/postImage6.png", likes: "24k", comments: "25", liked: true),
+    PostModel(logo: "asset/image/post/logo/profile.png", name: "StarBucks", time: "33 minutes ago", caption: "Make Fall your own. Try your Iced Chai Tea Latte with Pumpkin Cream Cold Foam. 🍂", image: "asset/image/post/image/postImage7.png", likes: "1k", comments: "6", liked: false),
+    PostModel(logo: "asset/image/post/logo/profile.png", name: "StarBucks", time: "1 week ago", caption: "Make Fall your own. Try your Iced Chai Tea Latte with Pumpkin Cream Cold Foam. 🍂", image: "asset/image/post/image/postImage8.png", likes: "1M", comments: "7k", liked: true),
+    PostModel(logo: "asset/image/post/logo/profile.png", name: "StarBucks", time: "1 week ago", caption: "Make Fall your own. Try your Iced Chai Tea Latte with Pumpkin Cream Cold Foam. 🍂", image: "asset/image/post/image/postImage9.png", likes: "1M", comments: "7k", liked: true),
+  ];
+  
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,36 +50,34 @@ class _HomeState extends State<Home> {
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: false,
-        title: Container(
-          width: 140,
-          height: 30,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage('asset/icon/restaurantly.png'),
-                fit: BoxFit.fill),
+        title: Text(
+          "Resturantly",
+          style: GoogleFonts.leckerliOne(
+            color: Colors.black,
+            fontSize: area*(24/17),
           ),
         ),
         actions: [
           Padding(
-            padding: const EdgeInsets.only(right: 10.0),
+            padding: EdgeInsets.only(right: screenWidth*0.04),
             child: Row(
               children: [
                 GestureDetector(
                   onTap: () {},
-                  child: const Icon(
+                  child: Icon(
                     Icons.search_rounded,
-                    size: 26.0,
+                    size: area*(26/17),
                     color: Colors.black,
                   ),
                 ),
                 SizedBox(
-                  width: screenWidth*0.00,
+                  width: screenWidth*0.01,
                 ),
                 GestureDetector(
                   onTap: () {},
                   child: Container(
-                    height: 17.0,
-                    width: 16.0,
+                    height: area,
+                    width: area*(16/17),
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: AssetImage('asset/icon/viewBox.png'),
@@ -77,12 +95,15 @@ class _HomeState extends State<Home> {
         children: [
           Expanded(
             flex: 2,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: _post.length,
-              itemBuilder: (context, index) {
-                return const Story();
-              }
+            child: Padding(
+              padding: EdgeInsets.only(left: area*(0)),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: _shop.length,
+                itemBuilder: (context, index) {
+                  return  NearShop(shopModel: _shop[index],);
+                }
+              ),
             ),
           ),
           Row(
@@ -126,7 +147,7 @@ class _HomeState extends State<Home> {
                 ListView.builder(
                   itemCount: _post.length,
                   itemBuilder: (context, index) {
-                    return const Post();
+                    return Post(postModel: _post[index],);
                   },
                 ),
                 Positioned(
@@ -143,10 +164,10 @@ class _HomeState extends State<Home> {
                     child: Center(
                       child: GestureDetector(
                         onTap: () {},
-                        child: const Image(
-                          image: AssetImage(
-                            'asset/icon/chat.png',
-                          ),
+                        child: Icon(
+                          Icons.chat_bubble_outline,
+                          size: area*(27/17),
+                          color: Colors.white,
                         ),
                       ),
                     ),

@@ -5,15 +5,17 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:comment_box/comment/comment.dart';
 import 'package:comment_box/comment/test.dart';
 import 'package:comment_box/main.dart';
+import 'package:resturantly/model/postModel.dart';
+import 'package:resturantly/model/postModel.dart';
 
 class Post extends StatefulWidget {
-  const Post({Key? key,}) : super(key: key);
+  final PostModel postModel;
+  const Post({Key? key, required this.postModel,}) : super(key: key);
   @override
   State<Post> createState() => _PostState();
 }
 
 class _PostState extends State<Post> {
-  bool isPressing = false;
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -36,8 +38,8 @@ class _PostState extends State<Post> {
                       width: area * (39 / 17),
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30.0),
-                        image: const DecorationImage(
-                            image: AssetImage('asset/image/profile.png'),
+                        image: DecorationImage(
+                            image: AssetImage('${widget.postModel.logo}'),
                             fit: BoxFit.fill),
                       ),
                     ),
@@ -48,13 +50,13 @@ class _PostState extends State<Post> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "StarBucks",
+                          '${widget.postModel.name}',
                           style: TextStyle(
                             fontSize: area * (21 / 17),
                           ),
                         ),
                         Text(
-                          "33 minutes ago",
+                          '${widget.postModel.time}',
                           style: TextStyle(
                             fontSize: area * (11 / 17),
                             color: Colors.grey,
@@ -75,7 +77,7 @@ class _PostState extends State<Post> {
             Padding(
               padding: EdgeInsets.symmetric(vertical: screenHeight*0.008),
               child: Text(
-                "Make Fall your own. Try your Iced Chai Tea Latte with Pumpkin Cream Cold Foam. 🍂",
+                '${widget.postModel.caption}',
                 style: TextStyle(
                   fontSize: area*(13/17),
                 ),
@@ -85,9 +87,9 @@ class _PostState extends State<Post> {
               height: screenHeight*0.25,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.0),
-                image: const DecorationImage(
+                image: DecorationImage(
                     image: AssetImage(
-                      'asset/image/postImage.png'
+                      '${widget.postModel.image}'
                       ),
                     fit: BoxFit.fill,
                   ),
@@ -104,19 +106,19 @@ class _PostState extends State<Post> {
                       GestureDetector(
                           onTap: () {
                             setState(() {
-                              isPressing = !isPressing;
+                              widget.postModel.liked = !widget.postModel.liked;
                             });
                           },
                           child: Icon(
                             Icons.favorite_border,
                             size: 18.0,
                             color:
-                                !isPressing ? const Color.fromARGB(255, 137, 137, 137) : Color.fromARGB(255, 255, 37, 110),
+                              widget.postModel.liked ? const Color.fromARGB(255, 137, 137, 137) : const Color.fromARGB(255, 255, 37, 110),
                           )),
-                      const Text(
-                        "12K",
+                      Text(
+                        '${widget.postModel.likes}',
                         style: TextStyle(
-                          fontSize: 12.0,
+                          fontSize: area*(12/17),
                           color: Color.fromARGB(255, 137, 137, 137),
                         ),
                       ),
@@ -137,7 +139,7 @@ class _PostState extends State<Post> {
                             color: const Color.fromARGB(255, 137, 137, 137),
                           )),
                       Text(
-                        "256",
+                        '${widget.postModel.comments}',
                         style: TextStyle(
                           fontSize: area*(12/17),
                           color: const Color.fromARGB(255, 137, 137, 137),
