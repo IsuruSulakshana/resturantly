@@ -1,5 +1,6 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
+import 'package:resturantly/screens/chatPage/components/photo.dart';
 import 'package:resturantly/screens/homePage/homePage.dart';
 
 void main() {
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         brightness: Brightness.light
       ),
-      home: Home(),
+      home: const Home(),
     );
   }
 }

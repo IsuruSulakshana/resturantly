@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:resturantly/model/postModel.dart';
 import 'package:resturantly/model/shopModel.dart';
+import 'package:resturantly/screens/chatPage/components/photo.dart';
 import 'package:resturantly/screens/homePage/components/post.dart';
 import 'package:resturantly/screens/homePage/components/story.dart';
 
@@ -163,7 +164,12 @@ class _HomeState extends State<Home> {
                         )),
                     child: Center(
                       child: GestureDetector(
-                        onTap: () {},
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const Photo()),
+                          );
+                        },
                         child: Icon(
                           Icons.chat_bubble_outline,
                           size: area*(27/17),
