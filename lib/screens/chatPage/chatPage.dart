@@ -5,21 +5,27 @@ import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
 class Chat extends StatefulWidget {
-  final Image image;
-  const Chat({Key? key, required this.image}) : super(key: key);
+  File image;
+  Chat({required this.image});
 
   @override
-  State<Chat> createState() => _ChatState();
+  State<Chat> createState() => _ChatState(image);
 }
 
 class _ChatState extends State<Chat> {
 
+ File image;
+ _ChatState(this.image);
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      backgroundColor: Colors.black,
+      body: Container(
+        child: Center(
+          child: Image.file(image),
+        ),
       ),
     );
   }
