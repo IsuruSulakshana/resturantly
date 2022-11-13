@@ -18,7 +18,8 @@ import 'package:uuid/uuid.dart';
 
 class ChatPage2 extends StatefulWidget {
   XFile? selfieImage;
-  ChatPage2({super.key, this.selfieImage});
+  String shopName;
+  ChatPage2({super.key, this.selfieImage, required this.shopName});
 
   @override
   State<ChatPage2> createState() => _ChatPage2State();
@@ -65,6 +66,7 @@ class _ChatPage2State extends State<ChatPage2> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: Text(widget.shopName)),
         body: Stack(
           children: [
             isLoading
@@ -81,6 +83,17 @@ class _ChatPage2State extends State<ChatPage2> {
               showUserAvatars: true,
               showUserNames: true,
               user: _user,
+              theme: DefaultChatTheme(
+                inputBackgroundColor: Color(0xFFE8E8F8),
+                backgroundColor: Colors.white,
+                inputTextColor: Colors.black,
+                inputTextCursorColor: Colors.black,
+                // emptyChatPlaceholderTextStyle: TextStyle(color: Colors.black),
+                // receivedMessageBodyTextStyle:
+                //     TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                // sentMessageBodyTextStyle:
+                //     TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),

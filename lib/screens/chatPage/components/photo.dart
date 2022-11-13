@@ -77,6 +77,7 @@ class _PhotoState extends State<Photo> {
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
                             builder: (BuildContext context) => ChatPage2(
                                   selfieImage: image,
+                                  shopName: "Shop Name",
                                 )));
                       },
                       child: Row(
