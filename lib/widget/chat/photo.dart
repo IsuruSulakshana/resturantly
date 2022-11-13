@@ -3,7 +3,6 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:resturantly/screens/chatPage/chatPage.dart';
-import 'package:resturantly/screens/chatPage/chatPage2.dart';
 
 class Photo extends StatefulWidget {
   const Photo({
@@ -75,7 +74,7 @@ class _PhotoState extends State<Photo> {
                         // Navigator.of(context).pushReplacement(MaterialPageRoute(
                         //     builder: (BuildContext context) => Chat(image: image,)));
                         Navigator.of(context).pushReplacement(MaterialPageRoute(
-                            builder: (BuildContext context) => ChatPage2(
+                            builder: (BuildContext context) => ChatPage(
                                   selfieImage: image,
                                   shopName: "Shop Name",
                                 )));

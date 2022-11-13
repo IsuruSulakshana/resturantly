@@ -110,7 +110,7 @@ class _PostState extends State<Post> {
                             });
                           },
                           child: Icon(
-                            Icons.favorite_border,
+                            Icons.favorite,
                             size: 18.0,
                             color:
                               widget.postModel.liked ? const Color.fromARGB(255, 137, 137, 137) : const Color.fromARGB(255, 255, 37, 110),

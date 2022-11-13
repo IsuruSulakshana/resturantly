@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:resturantly/model/postModel.dart';
 import 'package:resturantly/model/shopModel.dart';
-import 'package:resturantly/screens/chatPage/components/photo.dart';
-import 'package:resturantly/screens/homePage/components/post.dart';
-import 'package:resturantly/screens/homePage/components/story.dart';
+import 'package:resturantly/widget/chat/photo.dart';
+import 'package:resturantly/widget/home/post.dart';
+import 'package:resturantly/widget/home/searchBar.dart';
+import 'package:resturantly/widget/home/story.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -14,6 +15,8 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  TextEditingController input = TextEditingController();
+  bool isTapping = false;
   int _initValue = 100;
   final List _allShop = [
     ShopModel(
@@ -196,22 +199,32 @@ class _HomeState extends State<Home> {
         elevation: 0,
         backgroundColor: Colors.white,
         centerTitle: false,
-        title: Text(
+        title: !isTapping? Text(
           "Resturantly",
           style: GoogleFonts.leckerliOne(
             color: Colors.black,
             fontSize: area * (24 / 17),
           ),
-        ),
+        ):SearchBar(input: input),
         actions: [
           Padding(
             padding: EdgeInsets.only(right: screenWidth * 0.04),
             child: Row(
               children: [
                 GestureDetector(
-                  onTap: () {},
-                  child: Icon(
+                  onTap: () {
+                    setState(() {
+                      isTapping = !isTapping;
+                     }
+                   );
+                  },
+                  child: !isTapping? Icon(
                     Icons.search_rounded,
+                    size: area * (26 / 17),
+                    color: Colors.black,
+                  ):
+                  Icon(
+                    Icons.close,
                     size: area * (26 / 17),
                     color: Colors.black,
                   ),
@@ -269,7 +282,8 @@ class _HomeState extends State<Home> {
                   value: _initValue.toDouble(),
                   min: 100.0,
                   max: 400.0,
-                  label: "100 m",
+                  divisions: 9,
+                  label: "${_initValue.round().toString()}",
                   activeColor: const Color.fromARGB(255, 117, 99, 177),
                   inactiveColor: const Color.fromARGB(255, 130, 208, 252),
                   onChanged: (double newValue) {
