@@ -23,7 +23,7 @@ class _PostState extends State<Post> {
     double area = (screenHeight * screenWidth) / 20000;
     return Padding(
       padding: EdgeInsets.all(area),
-      child: Expanded(
+      child: Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
